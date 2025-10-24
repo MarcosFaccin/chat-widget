@@ -104,7 +104,7 @@
   });
 
   // Funções do chat
-  let userData = { nome: '', whatsapp: '', session: 'softwareplay-usuario' };
+  let userData = { nome: '', whatsapp: '', session: 'iddeia-usuario' };
 
   function toggleChat() {
     const chat = document.getElementById('chat-container');
