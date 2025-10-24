@@ -23,7 +23,7 @@
       <div class="chat-body" id="chatlog">
         <div class="chat-bubble chat-welcome">
           <strong>Oi! 👋</strong><br>
-          Eu sou a <strong>Bia</strong>, assistente da iddeia. Posso te ajudar com sites, lojas ou crm ou automações.<br>
+          Eu sou a <strong>Andréia</strong>, assistente da iddeia. Posso te ajudar com sites, lojas ou crm ou automações.<br>
           <button onclick="startChat()">Sim, conversar agora</button>
         </div>
         <div class="chat-form" id="step-nome" style="display: none; flex-direction: column; gap: 10px;">
@@ -53,14 +53,14 @@
     .chat-greeting { display: flex; flex-direction: column; font-size: 14px; color: #333; font-family: 'Segoe UI', sans-serif; text-align: left; }
     .chat-greeting strong { font-weight: 600; font-size: 15px; color: #0073e6; }
     #chat-container { position: fixed; bottom: 100px; right: 20px; width: 380px; height: auto; min-height: 500px; max-height: 60vh; background: white; border-radius: 16px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); overflow: hidden; display: none; flex-direction: column; font-family: 'Segoe UI', sans-serif; z-index: 9999; }
-    .chat-header { background: #0073e6; color: white; padding: 16px; font-weight: bold; font-size: 16px; display: flex; align-items: center; justify-content: space-between; }
+    .chat-header { background: #FF8C00; color: white; padding: 16px; font-weight: bold; font-size: 16px; display: flex; align-items: center; justify-content: space-between; }
     .chat-header img { width: 36px; height: 36px; border-radius: 50%; margin-right: 10px; object-fit: cover; }
     .chat-body { padding: 16px; flex: 1; overflow-y: auto; font-size: 14px; display: flex; flex-direction: column; background-color: #fafafa; }
     .chat-bubble { background: #f1f1f1; border-radius: 14px; padding: 12px 14px; margin-bottom: 10px; max-width: 85%; font-size: 14px; line-height: 1.4; }
-    .chat-bubble.user { background: #0073e6; color: white; align-self: flex-end; }
+    .chat-bubble.user { background: #FF8C00; color: white; align-self: flex-end; }
     .chat-footer { border-top: 1px solid #eee; padding: 12px; display: flex; gap: 8px; background: #fff; }
     .chat-footer input { flex: 1; padding: 10px 14px; border: 1px solid #ccc; border-radius: 8px; font-size: 14px; }
-    .chat-footer button { background: #0073e6; color: white; border: none; padding: 10px 16px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px; }
+    .chat-footer button { background: #FF8C00; color: white; border: none; padding: 10px 16px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px; }
     .chat-form input { padding: 10px 14px; border-radius: 8px; border: 1px solid #ccc; font-size: 14px; }
     .chat-form button { margin-top: 12px; padding: 10px 16px; border: none; background: #0073e6; color: white; border-radius: 8px; font-weight: 600; font-size: 14px; cursor: pointer; }
     .chat-welcome button { margin-top: 12px; padding: 10px 16px; border: none; background: #0073e6; color: white; border-radius: 8px; font-weight: 600; font-size: 14px; cursor: pointer; box-shadow: none; }
@@ -134,7 +134,7 @@
     const chatlog = document.getElementById('chatlog');
     const bubble = document.createElement("div");
     bubble.className = 'chat-bubble';
-    bubble.innerText = `👩‍💼 Bia: Obrigada! Vou começar seu atendimento agora 😊`;
+    bubble.innerText = `👩‍💼 Andréia: Obrigada! Vou começar seu atendimento agora 😊`;
     chatlog.appendChild(bubble);
 
     document.getElementById('step-whatsapp').style.display = 'none';
@@ -142,7 +142,7 @@
 
     const loading = document.createElement("div");
     loading.className = 'chat-bubble';
-    loading.innerText = 'Bia está digitando...';
+    loading.innerText = 'Andréia está digitando...';
     chatlog.appendChild(loading);
 
     try {
@@ -162,14 +162,14 @@
       if (match) {
         const link = match[1];
         const textoSemLink = resposta.replace(link, '').trim();
-        novaBolha.innerHTML = `👩‍💼 Bia: ${textoSemLink}<br>
+        novaBolha.innerHTML = `👩‍💼 Andréia: ${textoSemLink}<br>
           <a href="${link}" target="_blank" style="display:inline-block;margin-top:8px;padding:8px 16px;
              background-color:#25D366;color:white;border-radius:8px;text-decoration:none;
              font-weight:600;font-size:14px;">
              💬 Falar no WhatsApp
           </a>`;
       } else {
-        novaBolha.innerText = `👩‍💼 Bia: ${resposta}`;
+        novaBolha.innerText = `👩‍💼 Andréia: ${resposta}`;
       }
 
       chatlog.appendChild(novaBolha);
@@ -206,7 +206,7 @@
       for (let i = 0; i < respostas.length; i++) {
         const digitando = document.createElement("div");
         digitando.className = 'chat-bubble';
-        digitando.innerText = 'Bia está digitando...';
+        digitando.innerText = 'Andréia está digitando...';
         chatlog.appendChild(digitando);
         chatlog.scrollTop = chatlog.scrollHeight;
 
@@ -222,14 +222,14 @@
           if (match) {
             const link = match[1];
             const textoSemLink = texto.replace(link, '').trim();
-            novaBolha.innerHTML = `👩‍💼 Bia: ${textoSemLink}<br>
+            novaBolha.innerHTML = `👩‍💼 Andréia: ${textoSemLink}<br>
               <a href="${link}" target="_blank" style="display:inline-block;margin-top:8px;padding:8px 16px;
                  background-color:#25D366;color:white;border-radius:8px;text-decoration:none;
                  font-weight:600;font-size:14px;">
                  💬 Continuar no WhatsApp
               </a>`;
           } else {
-            novaBolha.innerText = `👩‍💼 Bia: ${texto}`;
+            novaBolha.innerText = `👩‍💼 Andréia: ${texto}`;
           }
 
           chatlog.appendChild(novaBolha);
