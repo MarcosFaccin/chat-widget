@@ -17,13 +17,13 @@
     </div>
     <div id="chat-container">
       <div class="chat-header">
-        <span><img id="header-img" src="${AVATAR_URL}" alt="Avatar" /> Software Play - Bia</span>
+        <span><img id="header-img" src="${AVATAR_URL}" alt="Avatar" /> iddeia - Andréia</span>
         <span style="cursor:pointer;" onclick="toggleChat()">✖</span>
       </div>
       <div class="chat-body" id="chatlog">
         <div class="chat-bubble chat-welcome">
           <strong>Oi! 👋</strong><br>
-          Eu sou a <strong>Bia</strong>, assistente da Software Play. Posso te ajudar com sites, lojas ou tráfego pago.<br>
+          Eu sou a <strong>Bia</strong>, assistente da iddeia. Posso te ajudar com sites, lojas ou crm ou automações.<br>
           <button onclick="startChat()">Sim, conversar agora</button>
         </div>
         <div class="chat-form" id="step-nome" style="display: none; flex-direction: column; gap: 10px;">
