@@ -1,6 +1,6 @@
 (function() {
   // ─── CONFIGURAÇÃO ───
-  const AVATAR_URL         = "https://assets.zyrosite.com/mnl431l6n6HPgpkZ/gemini_generated_image_yy8wmuyy8wmuyy8w-AoP4eNWqxbC3o7o9.png";
+  const AVATAR_URL         = "https://assets.zyrosite.com/mnl431l6n6HPgpkZ/andra-c-ia-agente-iddeia-mxB2anxZqZi6b7Zn.png";
   const WEBHOOK_URL        = "https://iddeia-n8n.cloudfy.live/webhook/01e3cc1f-c38f-4351-ab2a-8a5950b8ebdf";
   const INITIAL_RESPONSE   = "Pronto! Agora posso te ajudar\nQual serviço você gostaria de conhecer?\n\n- Criação de Sites\n- CRM\n- Automações";
 
