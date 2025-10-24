@@ -62,8 +62,8 @@
     .chat-footer input { flex: 1; padding: 10px 14px; border: 1px solid #ccc; border-radius: 8px; font-size: 14px; }
     .chat-footer button { background: #FF8C00; color: white; border: none; padding: 10px 16px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px; }
     .chat-form input { padding: 10px 14px; border-radius: 8px; border: 1px solid #ccc; font-size: 14px; }
-    .chat-form button { margin-top: 12px; padding: 10px 16px; border: none; background: #0073e6; color: white; border-radius: 8px; font-weight: 600; font-size: 14px; cursor: pointer; }
-    .chat-welcome button { margin-top: 12px; padding: 10px 16px; border: none; background: #0073e6; color: white; border-radius: 8px; font-weight: 600; font-size: 14px; cursor: pointer; box-shadow: none; }
+    .chat-form button { margin-top: 12px; padding: 10px 16px; border: none; background: #FF8C00; color: white; border-radius: 8px; font-weight: 600; font-size: 14px; cursor: pointer; }
+    .chat-welcome button { margin-top: 12px; padding: 10px 16px; border: none; background: #FF8C00; color: white; border-radius: 8px; font-weight: 600; font-size: 14px; cursor: pointer; box-shadow: none; }
     label { font-weight: 500; font-size: 15px; margin-bottom: 4px; color: #333; }
   `;
 
