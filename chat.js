@@ -23,7 +23,7 @@
       <div class="chat-body" id="chatlog">
         <div class="chat-bubble chat-welcome">
           <strong>Oi! 👋</strong><br>
-          Eu sou a <strong>Déia</strong>, assistente da iddeia. Posso te ajudar com sites, lojas ou crm ou automações.<br>
+          Eu sou a <strong>Déia</strong>, assistente da iddeia. Posso te ajudar com agentes, automações, sites, lojas ou crm.<br>
           <button onclick="startChat()">Sim, conversar agora</button>
         </div>
         <div class="chat-form" id="step-nome" style="display: none; flex-direction: column; gap: 10px;">
