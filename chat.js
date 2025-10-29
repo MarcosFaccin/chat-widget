@@ -17,13 +17,13 @@
     </div>
     <div id="chat-container">
       <div class="chat-header">
-        <span><img id="header-img" src="${AVATAR_URL}" alt="Avatar" /> iddeia - Andréia</span>
+        <span><img id="header-img" src="${AVATAR_URL}" alt="Avatar" /> Déia</span>
         <span style="cursor:pointer;" onclick="toggleChat()">✖</span>
       </div>
       <div class="chat-body" id="chatlog">
         <div class="chat-bubble chat-welcome">
           <strong>Oi! 👋</strong><br>
-          Eu sou a <strong>Andréia</strong>, assistente da iddeia. Posso te ajudar com sites, lojas ou crm ou automações.<br>
+          Eu sou a <strong>Déia</strong>, assistente da iddeia. Posso te ajudar com sites, lojas ou crm ou automações.<br>
           <button onclick="startChat()">Sim, conversar agora</button>
         </div>
         <div class="chat-form" id="step-nome" style="display: none; flex-direction: column; gap: 10px;">
@@ -126,136 +126,136 @@
   }
 
 async function enviarWhatsapp() {
-    const raw = document.getElementById('user-whatsapp').value.trim();
-    const digits = raw.replace(/\D/g, '');
-    if (digits.length < 10) return alert('Digite um número válido com DDD!');
-    userData.whatsapp = `+55${digits}`;
+    const raw = document.getElementById('user-whatsapp').value.trim();
+    const digits = raw.replace(/\D/g, '');
+    if (digits.length < 10) return alert('Digite um número válido com DDD!');
+    userData.whatsapp = `+55${digits}`;
 
-    const chatlog = document.getElementById('chatlog');
-    const bubble = document.createElement("div");
-    bubble.className = 'chat-bubble';
-    bubble.innerText = `👩‍💼 Andréia: Obrigada! Vou começar seu atendimento agora 😊`;
-    chatlog.appendChild(bubble);
+    const chatlog = document.getElementById('chatlog');
+    const bubble = document.createElement("div");
+    bubble.className = 'chat-bubble';
+    bubble.innerText = `👩‍💼 Déia: Obrigada! Vou começar seu atendimento agora 😊`;
+    chatlog.appendChild(bubble);
 
-    document.getElementById('step-whatsapp').style.display = 'none';
-    document.getElementById('chatfooter').style.display = 'flex';
+    document.getElementById('step-whatsapp').style.display = 'none';
+    document.getElementById('chatfooter').style.display = 'flex';
 
-    const loading = document.createElement("div");
-    loading.className = 'chat-bubble';
-    loading.innerText = 'Andréia está digitando...';
-    chatlog.appendChild(loading);
+    const loading = document.createElement("div");
+    loading.className = 'chat-bubble';
+    loading.innerText = 'Déia está digitando...';
+    chatlog.appendChild(loading);
 
-    try {
-      const response = await fetch(WEBHOOK_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(userData)
-      });
-      const data = await response.json(); // data será um array, ex: [{ "text": "..." }]
-      loading.remove();
+    try {
+      const response = await fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userData)
+      });
+      const data = await response.json(); // data será um array, ex: [{ "text": "..." }]
+      loading.remove();
 
       // --- INÍCIO DA CORREÇÃO ---
       // Pega o primeiro item do array (se for um array) ou o objeto direto
-      const respostaObj = Array.isArray(data) ? data[0] : data;
+      const respostaObj = Array.isArray(data) ? data[0] : data;
       // Agora sim, pega a chave "text" do objeto
-      const respostaIA = (respostaObj && respostaObj.text) ? respostaObj.text : "Desculpe, não recebi uma resposta.";
+      const respostaIA = (respostaObj && respostaObj.text) ? respostaObj.text : "Desculpe, não recebi uma resposta.";
       // --- FIM DA CORREÇÃO ---
 
-      const novaBolha = document.createElement("div");
-      novaBolha.className = "chat-bubble";
+      const novaBolha = document.createElement("div");
+      novaBolha.className = "chat-bubble";
 
-      const regexWa = /(https:\/\/wa\.me\/[0-9?=]+)/;
-      const match = respostaIA.match(regexWa); // Usa a variável correta
-      if (match) {
-        const link = match[1];
-        const textoSemLink = respostaIA.replace(link, '').trim(); // Usa a variável correta
-        novaBolha.innerHTML = `👩‍💼 Andréia: ${textoSemLink}<br>
-          <a href="${link}" target="_blank" style="display:inline-block;margin-top:8px;padding:8px 16px;
-             background-color:#25D366;color:white;border-radius:8px;text-decoration:none;
-             font-weight:600;font-size:14px;">
-             💬 Falar no WhatsApp
-          </a>`;
-      } else {
-        novaBolha.innerText = `👩‍💼 Andréia: ${respostaIA}`; // Usa a variável correta
-      }
+      const regexWa = /(https:\/\/wa\.me\/[0-9?=]+)/;
+      const match = respostaIA.match(regexWa); // Usa a variável correta
+      if (match) {
+        const link = match[1];
+        const textoSemLink = respostaIA.replace(link, '').trim(); // Usa a variável correta
+        novaBolha.innerHTML = `👩‍💼 Déia: ${textoSemLink}<br>
+          <a href="${link}" target="_blank" style="display:inline-block;margin-top:8px;padding:8px 16px;
+             background-color:#25D366;color:white;border-radius:8px;text-decoration:none;
+             font-weight:600;font-size:14px;">
+             💬 Falar no WhatsApp
+          </a>`;
+      } else {
+        novaBolha.innerText = `👩‍💼 Déia: ${respostaIA}`; // Usa a variável correta
+      }
 
-      chatlog.appendChild(novaBolha);
-      chatlog.scrollTop = chatlog.scrollHeight;
-    } catch (err) {
+      chatlog.appendChild(novaBolha);
+      chatlog.scrollTop = chatlog.scrollHeight;
+    } catch (err) {
       console.error("Erro no 'enviarWhatsapp':", err); // Para depuração
-      loading.innerText = '❌ Erro ao iniciar atendimento.';
-    }
-  }
+      loading.innerText = '❌ Erro ao iniciar atendimento.';
+    }
+  }
 
 async function sendChat() {
-    const input = document.getElementById('chatinput');
-    const message = input.value.trim();
-    if (!message) return;
+    const input = document.getElementById('chatinput');
+    const message = input.value.trim();
+    if (!message) return;
 
-    const chatlog = document.getElementById('chatlog');
-    const msgUser = document.createElement("div");
-    msgUser.className = 'chat-bubble user';
-    msgUser.innerText = message;
-    chatlog.appendChild(msgUser);
-    input.value = '';
-    chatlog.scrollTop = chatlog.scrollHeight;
+    const chatlog = document.getElementById('chatlog');
+    const msgUser = document.createElement("div");
+    msgUser.className = 'chat-bubble user';
+    msgUser.innerText = message;
+    chatlog.appendChild(msgUser);
+    input.value = '';
+    chatlog.scrollTop = chatlog.scrollHeight;
 
-    const payload = { message, session: userData.session };
+    const payload = { message, session: userData.session };
 
-    try {
-      const response = await fetch(WEBHOOK_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-      });
-      const data = await response.json(); // data será um array, ex: [{ "text": "..." }]
-      const respostas = Array.isArray(data) ? data : [data];
+    try {
+      const response = await fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      const data = await response.json(); // data será um array, ex: [{ "text": "..." }]
+      const respostas = Array.isArray(data) ? data : [data];
 
-      for (let i = 0; i < respostas.length; i++) {
+      for (let i = 0; i < respostas.length; i++) {
          // --- INÍCIO DA CORREÇÃO ---
          // Define a variável 'texto' lendo a chave 'text' que o n8n agora envia
-         const texto = (respostas[i] && respostas[i].text) ? respostas[i].text : "";
+         const texto = (respostas[i] && respostas[i].text) ? respostas[i].text : "";
          // --- FIM DA CORREÇÃO ---
 
-        const digitando = document.createElement("div");
-        digitando.className = 'chat-bubble';
-        digitando.innerText = 'Andréia está digitando...';
-        chatlog.appendChild(digitando);
-        chatlog.scrollTop = chatlog.scrollHeight;
+        const digitando = document.createElement("div");
+        digitando.className = 'chat-bubble';
+        digitando.innerText = 'Déia está digitando...';
+        chatlog.appendChild(digitando);
+        chatlog.scrollTop = chatlog.scrollHeight;
 
-        await new Promise(res => setTimeout(res, 1000 + i * 300));
-        digitando.remove();
+        await new Promise(res => setTimeout(res, 1000 + i * 300));
+        digitando.remove();
 
-        if (texto.trim()) {
-          const novaBolha = document.createElement("div");
-          novaBolha.className = "chat-bubble";
+        if (texto.trim()) {
+          const novaBolha = document.createElement("div");
+          novaBolha.className = "chat-bubble";
 
-          const regexWa = /(https:\/\/wa\.me\/[0-9?=]+)/;
-          const match = texto.match(regexWa); // 'texto' agora existe
-          if (match) {
-            const link = match[1];
-            const textoSemLink = texto.replace(link, '').trim();
-            novaBolha.innerHTML = `👩‍💼 Andréia: ${textoSemLink}<br>
-              <a href="${link}" target="_blank" style="display:inline-block;margin-top:8px;padding:8px 16px;
-                 background-color:#25D366;color:white;border-radius:8px;text-decoration:none;
-                 font-weight:600;font-size:14px;">
-                 💬 Continuar no WhatsApp
-              </a>`;
-          } else {
-            novaBolha.innerText = `👩‍💼 Andréia: ${texto}`;
-          }
+          const regexWa = /(https:\/\/wa\.me\/[0-9?=]+)/;
+          const match = texto.match(regexWa); // 'texto' agora existe
+          if (match) {
+            const link = match[1];
+            const textoSemLink = texto.replace(link, '').trim();
+            novaBolha.innerHTML = `👩‍💼 Déia: ${textoSemLink}<br>
+              <a href="${link}" target="_blank" style="display:inline-block;margin-top:8px;padding:8px 16px;
+                 background-color:#25D366;color:white;border-radius:8px;text-decoration:none;
+                 font-weight:600;font-size:14px;">
+                 💬 Continuar no WhatsApp
+              </a>`;
+          } else {
+            novaBolha.innerText = `👩‍💼 Déia: ${texto}`;
+          }
 
-          chatlog.appendChild(novaBolha);
-          chatlog.scrollTop = chatlog.scrollHeight;
-        }
-      }
-    } catch (err) {
+          chatlog.appendChild(novaBolha);
+          chatlog.scrollTop = chatlog.scrollHeight;
+        }
+      }
+    } catch (err) {
       console.error("Erro no 'sendChat':", err); // Para depuração
-      const erroBolha = document.createElement("div");
-      erroBolha.className = "chat-bubble";
-      erroBolha.innerText = '❌ Erro ao se comunicar com a IA.';
-      chatlog.appendChild(erroBolha);
-      chatlog.scrollTop = chatlog.scrollHeight;
-    }
-  }
+      const erroBolha = document.createElement("div");
+      erroBolha.className = "chat-bubble";
+      erroBolha.innerText = '❌ Erro ao se comunicar com a IA.';
+      chatlog.appendChild(erroBolha);
+      chatlog.scrollTop = chatlog.scrollHeight;
+    }
+  }
 })();
